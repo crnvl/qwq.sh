@@ -1,6 +1,7 @@
 FROM node:lts-alpine
 ENV NODE_ENV=production
-WORKDIR /usr/src/qwqsh
+RUN git clone https://github.com/angelsflyinhell/mathi.git
+WORKDIR /usr/src/mathi
 COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 RUN npm install --production --silent && mv node_modules ../
 COPY . .
