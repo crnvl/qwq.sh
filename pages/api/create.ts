@@ -10,7 +10,7 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
 ) {
-    res.setHeader('Access-Control-Allow-Origin', 'qwq.sh, www.qwq.sh');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     
     await connectDB()
     const url = JSON.parse(req.body).url;
