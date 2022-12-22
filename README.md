@@ -1,5 +1,6 @@
-# Host it yourself
+[![Deploy Docker Image](https://github.com/angelsflyinhell/qwq.sh/actions/workflows/deploy.yml/badge.svg)](https://github.com/angelsflyinhell/qwq.sh/actions/workflows/deploy.yml)
 
+# Host it yourself
 Docker
 ```bash
 docker pull ghcr.io/angelsflyinhell/qwqsh:latest
