@@ -10,4 +10,4 @@ COPY . .
 RUN npm install --production --silent
 RUN npm run build
 
-ENTRYPOINT ["npx", "next", "start", "-p", "3000"]
+ENTRYPOINT ["npx", "next", "start", "-p", "3004"]
