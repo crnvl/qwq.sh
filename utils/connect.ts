@@ -1,4 +1,3 @@
-import config from '../config.json'
 import { connect } from 'mongoose';
 
 export const connectDB = async () => {
