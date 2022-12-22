@@ -1,10 +1,15 @@
-FROM node:lts-alpine
+FROM node:18-alpine
+
 ENV NODE_ENV=production
-WORKDIR /usr/src/qwqsh
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
-RUN npm install --production --silent && mv node_modules ../
+ENV NEXT_TELEMETRY_DISABLED 1
+
+WORKDIR /app
+
 COPY . .
+
+RUN npm install --production --silent
+RUN npm run build
+
 EXPOSE 3000
-RUN chown -R node /usr/src/qwqshs
-USER node
-CMD ["npm", "start"]
+
+ENTRYPOINT ["npx", "next", "start", "-p", "3000"]
