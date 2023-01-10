@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import ShortUrl from "../../models/shortUrl";
+import TrackingInfo from "../../models/trackingInfo";
 import { connectDB } from "../../utils/connect";
 
 type Data = {
@@ -14,6 +15,7 @@ export default async function handler(
     
     await connectDB();
     const key = JSON.parse(req.body).key;
+    
 
     if (key === "[id]") {
         res.json({ url: '/' });
@@ -24,7 +26,19 @@ export default async function handler(
 
     if (url) {
         res.json({ url: url.url });
+
+        let trackingInfo = await TrackingInfo.findOne({ key: key });
+
+        if (!trackingInfo) {
+            trackingInfo = new TrackingInfo({
+                key: key,
+            });
+        }
+        trackingInfo.clicks++;
+        trackingInfo.lastClick = new Date();
+        await trackingInfo.save();
+
         return
     }
-    res.json({ url: '/' });
+    res.json({ url: '/' + key });
 }
