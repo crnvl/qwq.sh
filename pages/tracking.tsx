@@ -20,13 +20,15 @@ const Tracking: NextPage = () => {
         })
         const json = await data.json()
 
+        console.log(json);
+        
         if (json.success) {
             setClicks(json.clicks)
             const date = new Date(json.lastClick)
             const monthNames = ["January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"
             ];
-            setLastClicked(`${monthNames[date.getMonth()]} ${date.getDay()}`)
+            setLastClicked(`${monthNames[date.getMonth()]} ${date.getDate()}`)
         }
 
         setIcon(<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
