@@ -26,7 +26,7 @@ const Tracking: NextPage = () => {
             const monthNames = ["January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"
             ];
-            setLastClicked(`${monthNames[date.getMonth()]} ${date.getDay()}, ${date.getHours()}:${date.getMinutes()}`)
+            setLastClicked(`${monthNames[date.getMonth()]} ${date.getDay()}`)
         }
 
         setIcon(<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
