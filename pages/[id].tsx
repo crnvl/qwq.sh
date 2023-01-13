@@ -1,8 +1,5 @@
 import { NextPage } from "next";
-import { AppContext } from "next/app";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 export async function getServerSideProps(context: any) {
     const key = context.query.id;
@@ -23,10 +20,7 @@ export async function getServerSideProps(context: any) {
         redirect: {
             destination: data.url,
             permanent: false,
-        },
-        props: {
-            data,
-        },
+        }
     };
 };
 

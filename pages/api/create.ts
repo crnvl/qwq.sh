@@ -14,6 +14,7 @@ export default async function handler(
     
     await connectDB()
     const url = JSON.parse(req.body).url;
+    
     const key = Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 5);
 
     const shortUrl = await ShortUrl.create({ url: url, key: key });
