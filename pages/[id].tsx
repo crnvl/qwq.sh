@@ -1,25 +1,36 @@
 import { NextPage } from "next";
+import { AppContext } from "next/app";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-const Redirect: NextPage = () => {
-    const nav = useRouter();
-    useEffect(() => {
-        fetch("https://qwq.sh/api/redirect", {
-            method: "POST",
-            body: JSON.stringify({ key: nav.asPath.replace("/", "") }),
-        })
-            .then(async (res) => {
-                if (res.status !== 200) {
-                    throw new Error("Invalid key");
-                }
+export async function getServerSideProps(context: any) {
+    const key = context.query.id;
+    
+    const res = await fetch("https://qwq.sh/api/redirect", {
+        method: "POST",
+        body: JSON.stringify({ key }),
+    });
+    
+    if (res.status !== 200) {
+        return {
+            notFound: true,
+        };
+    }
 
-                const data = await res.json();
-                nav.push(data.url);
-            })
-    })
+    const data = await res.json();
+    return {
+        redirect: {
+            destination: data.url,
+            permanent: false,
+        },
+        props: {
+            data,
+        },
+    };
+};
 
+const Redirect: NextPage = ({ data }: any) => {
     return <>
         <div className="flex w-screen h-screen justify-center items-center bg-black text-white">
             <div className="text-center max-w-sm">
