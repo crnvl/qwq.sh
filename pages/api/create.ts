@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import ShortUrl from '../../models/shortUrl';
 import { connectDB } from '../../utils/connect';
+import { generateKey } from '../../utils/keyUtils';
 
 type Data = {
     url: string
@@ -13,16 +14,22 @@ export default async function handler(
     res.setHeader('Access-Control-Allow-Origin', '*');
 
     await connectDB()
-    const url = JSON.parse(req.body).url;
+    const data = JSON.parse(req.body);
 
+    if (!data.url) {
+        res.status(400).json({ url: 'Invalid URL' });
+        return;
+    }
+    
     let keyLength = 5;
-    let key = Math.random().toString(36).substring(2, keyLength) + Math.random().toString(36).substring(2, keyLength);
+    let key = generateKey(keyLength);
     
     while (await ShortUrl.findOne({ key: key })) {
         keyLength++;
-        key = Math.random().toString(36).substring(2, keyLength) + Math.random().toString(36).substring(2, keyLength);
+        key = generateKey(keyLength);
     }
+    
+    const shortUrl = await ShortUrl.create({ url: data.url, key: key });
 
-    const shortUrl = await ShortUrl.create({ url: url, key: key });
     res.status(200).json({ url: `https://qwq.sh/${shortUrl.key}` });
 }

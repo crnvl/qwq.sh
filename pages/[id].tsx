@@ -2,13 +2,13 @@ import { NextPage } from "next";
 import Link from "next/link";
 
 export async function getServerSideProps(context: any) {
-    const key = context.query.id;
-    
+    const key = context.query.id.toString();
+
     const res = await fetch("https://qwq.sh/api/redirect", {
         method: "POST",
-        body: JSON.stringify({ key }),
+        body: JSON.stringify({ key: key }),
     });
-    
+
     if (res.status !== 200) {
         return {
             notFound: true,
@@ -16,6 +16,7 @@ export async function getServerSideProps(context: any) {
     }
 
     const data = await res.json();
+    
     return {
         redirect: {
             destination: data.url,
