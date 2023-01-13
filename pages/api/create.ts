@@ -11,11 +11,17 @@ export default async function handler(
     res: NextApiResponse<Data>
 ) {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    
+
     await connectDB()
     const url = JSON.parse(req.body).url;
+
+    let keyLength = 5;
+    let key = Math.random().toString(36).substring(2, keyLength) + Math.random().toString(36).substring(2, keyLength);
     
-    const key = Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 5);
+    while (await ShortUrl.findOne({ key: key })) {
+        keyLength++;
+        key = Math.random().toString(36).substring(2, keyLength) + Math.random().toString(36).substring(2, keyLength);
+    }
 
     const shortUrl = await ShortUrl.create({ url: url, key: key });
     res.status(200).json({ url: `https://qwq.sh/${shortUrl.key}` });
