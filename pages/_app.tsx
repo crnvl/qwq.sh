@@ -3,15 +3,18 @@ import type { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GHFH4F2G6W"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=G-GHFH4F2G6W`} />
 
-      gtag('config', 'G-GHFH4F2G6W');
-    </script>
+            <Script strategy="lazyOnload">
+                {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-GHFH4F2G6W', {
+                    page_path: window.location.pathname,
+                    });
+                `}
+            </Script>
     <Component {...pageProps} />
   </>
 }
