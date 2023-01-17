@@ -61,7 +61,7 @@ const Home: NextPage = () => {
 			<div className={`flex flex-col md:flex-row justify-center m-auto gap-4`}>
 				<form onSubmit={createShortUrl}>
 					<div className="relative">
-						<input type="input" id="input" className="px-8 py-4 text-custom-400 font-bold rounded-md outline-none focus:shadow-lg transition ease-in-out duration-300" placeholder="Search" required />
+						<input type="input" id="input" className="px-8 py-4 text-custom-400 font-bold rounded-md outline-none focus:shadow-lg transition ease-in-out duration-300" placeholder="Enter link" required />
 						<div className="absolute right-1.5 bottom-1.5">
 							<div className='flex gap-2'>
 								{/* <button type='button' onClick={toggleZeroWidth} className='px-4 py-2.5 font-bold rounded-md bg-black text-white shadow-lg hover:shadow-none transition ease-in-out duration-300 active:scale-95 active:bg-white active:text-custom-400'>
