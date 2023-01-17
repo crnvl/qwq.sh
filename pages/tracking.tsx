@@ -20,7 +20,7 @@ const Tracking: NextPage = () => {
         })
         const json = await data.json()
 
-        console.log(json);
+        
         
         if (json.success) {
             setClicks(json.clicks)
