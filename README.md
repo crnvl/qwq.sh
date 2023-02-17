@@ -14,3 +14,5 @@ qwq.sh is a simple, lightweight, and fast URL shortener written in Typescript us
 [![Trending topics](https://images.repography.com/33218021/angelsflyinhell/qwq.sh/recent-activity/w7TaJ_2CnvqE_8QTS3DNk_-292ChbcTRkLzWaetxzfM/ylw0Kee4BAdEewAFVmQRbSZWgTWMLtWt2REcc33N76Q_words.svg)](https://github.com/angelsflyinhell/qwq.sh/commits)
 [![Top contributors](https://images.repography.com/33218021/angelsflyinhell/qwq.sh/recent-activity/w7TaJ_2CnvqE_8QTS3DNk_-292ChbcTRkLzWaetxzfM/ylw0Kee4BAdEewAFVmQRbSZWgTWMLtWt2REcc33N76Q_users.svg)](https://github.com/angelsflyinhell/qwq.sh/graphs/contributors)
 [![Activity map](https://images.repography.com/33218021/angelsflyinhell/qwq.sh/recent-activity/w7TaJ_2CnvqE_8QTS3DNk_-292ChbcTRkLzWaetxzfM/ylw0Kee4BAdEewAFVmQRbSZWgTWMLtWt2REcc33N76Q_map.svg)](https://github.com/angelsflyinhell/qwq.sh/commits)
+
+
