@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@types/mongoose": "^5.11.97",
-    "mongoose": "^7.0.0",
+    "mongoose": "^7.0.2",
     "next": "13.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0"
