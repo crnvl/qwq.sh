@@ -15,7 +15,7 @@ export default async function handler(
     res.setHeader('Access-Control-Allow-Origin', '*');
 
     await connectDB();
-    const key = JSON.parse(req.body).key;
+    const key = req.body.key;
 
     if (key === "[id]") {
         res.json({ clicks: 0, lastClick: new Date(), success: false });
