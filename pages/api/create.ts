@@ -16,11 +16,11 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
 ) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
     if (req.method !== "POST") {
         res.status(405).json({ error_message: 'Method not allowed' });
         return;
     }
-    res.setHeader('Access-Control-Allow-Origin', '*');
 
     await connectDB()
     const data = req.body;

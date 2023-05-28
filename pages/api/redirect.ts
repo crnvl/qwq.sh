@@ -12,10 +12,10 @@ export default async function handler(
     res: NextApiResponse<Data>
 ) {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    
+
     await connectDB();
-    const key = JSON.parse(req.body).key;
-    
+    const key = req.body.key;
+
 
     if (key === "[id]") {
         res.json({ url: '/' });
