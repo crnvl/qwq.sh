@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/mongoose": "^5.11.97",
+    "axios": "^1.4.0",
     "mongoose": "^7.0.0",
     "next": "13.2.3",
     "react": "18.2.0",
