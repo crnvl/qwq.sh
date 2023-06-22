@@ -7,7 +7,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install --production --silent
+RUN npm install
 RUN npm run build
 
 ENTRYPOINT ["npx", "next", "start", "-p", "3005"]
