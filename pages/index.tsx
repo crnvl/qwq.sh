@@ -2,9 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Spline from "@splinetool/react-spline";
 import SplineEmbed from "../components/spline";
-import { set } from "mongoose";
 
 const Home: NextPage = () => {
   const [showTracking, setShowTracking] = useState(false);
