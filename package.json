@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@splinetool/react-spline": "^2.2.6",
     "@types/mongoose": "^5.11.97",
     "axios": "^1.4.0",
     "mongoose": "^7.0.0",

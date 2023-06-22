@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import SplineEmbed from "../components/spline";
 
 const Tracking: NextPage = () => {
   const [icon, setIcon] = useState(
@@ -79,7 +80,10 @@ const Tracking: NextPage = () => {
         <meta name="description" content="Track your URLs." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="flex w-screen h-screen bg-custom-200 flex-col">
+      <div className="absolute top-0 left-0 w-screen h-screen -z-20">
+        <SplineEmbed />
+      </div>
+      <div className="flex w-screen h-screen flex-col bg-custom-pink">
         <div className={`justify-center m-auto`}>
           <div className="flex flex-col md:flex gap-4">
             <input
@@ -90,7 +94,7 @@ const Tracking: NextPage = () => {
             />
             <button
               onClick={getTrackingInfo}
-              className="flex justify-center px-8 py-4 font-bold rounded-md bg-black text-white shadow-lg hover:shadow-none transition ease-in-out duration-300 active:scale-95 active:bg-white active:text-custom-400"
+              className="flex justify-center px-8 py-4 font-bold rounded-md bg-black text-white shadow-lg hover:shadow-none transition ease-in-out duration-300 active:bg-white active:text-black active:scale-95 hover:bg-white hover:text-black"
             >
               {icon}
             </button>
@@ -104,6 +108,16 @@ const Tracking: NextPage = () => {
               <h1 className="text-gray-500">Last clicked</h1>
               <p className="font-bold text-xl text-start">{lastClicked}</p>
             </div>
+          </div>
+        </div>
+        <div id="footer">
+          <div className="flex flex-row justify-center gap-4 py-4">
+            <a
+              href="/"
+              className="px-8 rounded-md text-white opacity-50 hover:opacity-100 transition ease-in-out duration-300"
+            >
+              Back
+            </a>
           </div>
         </div>
       </div>

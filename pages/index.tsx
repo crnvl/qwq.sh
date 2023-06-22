@@ -2,8 +2,12 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Spline from "@splinetool/react-spline";
+import SplineEmbed from "../components/spline";
+import { set } from "mongoose";
 
 const Home: NextPage = () => {
+  const [showTracking, setShowTracking] = useState(false);
   const [icon, setIcon] = useState(
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -71,6 +75,7 @@ const Home: NextPage = () => {
         />
       </svg>
     );
+    setShowTracking(true);
   };
 
   function toggleZeroWidth() {
@@ -129,16 +134,19 @@ const Home: NextPage = () => {
         <meta name="description" content="Easy to use & free URL Shortener." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="flex w-screen h-screen bg-custom-400">
+      <div className="absolute top-0 left-0 w-screen h-screen">
+        <SplineEmbed />
+      </div>
+      <div className="flex w-screen h-screen bg-custom-pink">
         <div
           className={`flex flex-col md:flex-row justify-center m-auto gap-4`}
         >
-          <form onSubmit={createShortUrl}>
+          <form onSubmit={createShortUrl} className="z-50">
             <div className="relative">
               <input
                 type="input"
                 id="input"
-                className="px-8 py-4 text-custom-400 font-bold rounded-md outline-none focus:shadow-lg transition ease-in-out duration-300"
+                className="px-8 py-4 text-black font-bold rounded-md outline-none focus:shadow-lg transition ease-in-out duration-300"
                 placeholder="Enter link"
                 required
               />
@@ -155,6 +163,16 @@ const Home: NextPage = () => {
                   </button>
                 </div>
               </div>
+            </div>
+            <div className="w-full flex justify-center">
+              {showTracking ? (
+                <a className="px-8 rounded-md text-white opacity-50 hover:opacity-100 transition ease-in-out duration-300"
+                href="/tracking">
+                  Link tracking
+                </a>
+              ) : (
+                <></>
+              )}
             </div>
           </form>
         </div>
