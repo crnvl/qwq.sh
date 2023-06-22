@@ -81,10 +81,10 @@ const Tracking: NextPage = () => {
         <meta name="description" content="Track your URLs." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="absolute top-0 left-0 w-screen h-screen -z-20">
+      <div className="absolute top-0 left-0 w-screen h-screen -z-20 bg-custom-pink">
         <SplineEmbed />
       </div>
-      <div className="flex w-screen h-screen flex-col bg-custom-pink">
+      <div className="flex w-screen h-screen flex-col">
         <div className={`justify-center m-auto`}>
           <div className="flex flex-col md:flex gap-4">
             <input
