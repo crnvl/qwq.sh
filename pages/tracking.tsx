@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SplineEmbed from "../components/spline";
+import Link from "next/link";
 
 const Tracking: NextPage = () => {
   const [icon, setIcon] = useState(
@@ -112,12 +113,12 @@ const Tracking: NextPage = () => {
         </div>
         <div id="footer">
           <div className="flex flex-row justify-center gap-4 py-4">
-            <a
+            <Link
               href="/"
               className="px-8 rounded-md text-white opacity-50 hover:opacity-100 transition ease-in-out duration-300"
             >
               Back
-            </a>
+            </Link>
           </div>
         </div>
       </div>

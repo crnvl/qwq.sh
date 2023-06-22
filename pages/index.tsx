@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SplineEmbed from "../components/spline";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   const [showTracking, setShowTracking] = useState(false);
@@ -164,10 +165,10 @@ const Home: NextPage = () => {
             </div>
             <div className="w-full flex justify-center">
               {showTracking ? (
-                <a className="px-8 rounded-md text-white opacity-50 hover:opacity-100 transition ease-in-out duration-300"
+                <Link className="px-8 rounded-md text-white opacity-50 hover:opacity-100 transition ease-in-out duration-300"
                 href="/tracking">
                   Link tracking
-                </a>
+                </Link>
               ) : (
                 <></>
               )}
