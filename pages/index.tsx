@@ -143,7 +143,7 @@ const Home: NextPage = () => {
         >
           <form onSubmit={createShortUrl} className="z-50">
             <div className="relative">
-              <div className="flex flex-row border border-white/50 focus-within:scale-110 focus-within:-translate-y-1 px-2 transition ease-in-out duration-300 items-center input-bg relative overflow-hidden rounded-md">
+              <div className="flex flex-row border border-white/25 focus-within:scale-110 focus-within:-translate-y-1 px-2 transition ease-in-out duration-300 items-center input-bg relative overflow-hidden rounded-md">
                 <input
                   type="input"
                   id="input"
