@@ -163,7 +163,7 @@ const Home: NextPage = () => {
 
                 <button
                   type="submit"
-                  className="px-2 py-2 active:white-10 rounded-md font-bold text-white transition ease-in-out duration-300 active:scale-95 active:bg-white active:text-slate-700"
+                  className="px-2 py-2 rounded-md font-bold text-white transition ease-in-out duration-300 active:scale-95 active:bg-white active:text-pink-500/75"
                 >
                   {icon}
                 </button>
