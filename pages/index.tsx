@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import SplineEmbed from "../components/spline";
 import Link from "next/link";
+import Image from "next/image";
 
 const Home: NextPage = () => {
   const [showTracking, setShowTracking] = useState(false);
@@ -142,31 +143,38 @@ const Home: NextPage = () => {
         >
           <form onSubmit={createShortUrl} className="z-50">
             <div className="relative">
-              <input
-                type="input"
-                id="input"
-                className="px-8 py-4 text-black font-bold rounded-md outline-none focus:shadow-lg transition ease-in-out duration-300"
-                placeholder="Enter link"
-                required
-              />
-              <div className="absolute right-1.5 bottom-1.5">
-                <div className="flex gap-2">
-                  {/* <button type='button' onClick={toggleZeroWidth} className='px-4 py-2.5 font-bold rounded-md bg-black text-white shadow-lg hover:shadow-none transition ease-in-out duration-300 active:scale-95 active:bg-white active:text-custom-400'>
-									{zw}
-								</button> */}
-                  <button
-                    type="submit"
-                    className="px-4 py-2.5 font-bold rounded-md bg-black text-white shadow-lg hover:shadow-none transition ease-in-out duration-300 active:scale-95 active:bg-white active:text-custom-400"
-                  >
-                    {icon}
-                  </button>
-                </div>
+              <div className="flex flex-row border border-white/50 focus-within:scale-110 focus-within:-translate-y-1 px-2 transition ease-in-out duration-300 items-center input-bg relative overflow-hidden rounded-md">
+                <input
+                  type="input"
+                  id="input"
+                  className="bg-transparent peer outline-none p-4 rounded-md !text-white placeholder-white font-semibold"
+                  // className=" text-black font-bold rounded-md outline-none focus:shadow-lg transition ease-in-out duration-300"
+                  placeholder="Enter your URL"
+                  required
+                />
+                <Image
+                  alt="acryllic-backimage"
+                  width={600}
+                  height={600}
+                  priority
+                  src="/acryllic.png"
+                  className="-z-10 absolute top-0 left-0 scale-150 w-full aspect-square opacity-20"
+                />
+
+                <button
+                  type="submit"
+                  className="px-2 py-2 active:white-10 rounded-md font-bold text-white transition ease-in-out duration-300 active:scale-95 active:bg-white active:text-slate-700"
+                >
+                  {icon}
+                </button>
               </div>
             </div>
             <div className="w-full flex justify-center">
               {showTracking ? (
-                <Link className="px-8 rounded-md text-white opacity-50 hover:opacity-100 transition ease-in-out duration-300"
-                href="/tracking">
+                <Link
+                  className="px-8 rounded-md text-white opacity-50 hover:opacity-100 transition ease-in-out duration-300"
+                  href="/tracking"
+                >
                   Link tracking
                 </Link>
               ) : (
