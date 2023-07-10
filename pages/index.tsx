@@ -153,11 +153,11 @@ const Home: NextPage = () => {
                   required
                 />
                 <Image
-                  alt="acryllic-backimage"
+                  alt="acrylic-backimage"
                   width={600}
                   height={600}
                   priority
-                  src="/acryllic.png"
+                  src="/acrylic.png"
                   className="-z-10 absolute top-0 left-0 scale-150 w-full aspect-square opacity-20"
                 />
 
