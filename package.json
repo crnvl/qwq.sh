@@ -13,7 +13,7 @@
     "@splinetool/runtime": "^0.9.381",
     "@types/mongoose": "^5.11.97",
     "axios": "^1.4.0",
-    "mongoose": "^7.3.0",
+    "mongoose": "^7.3.4",
     "next": "13.4.9",
     "react": "18.2.0",
     "react-dom": "18.2.0"
