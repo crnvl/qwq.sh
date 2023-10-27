@@ -26,9 +26,8 @@ const Tracking: NextPage = () => {
   const [clicks, setClicks] = useState("N/A");
   const [lastClicked, setLastClicked] = useState("N/A");
 
-  let domain = process.env.DOMAIN;
   const getTrackingInfo = async () => {
-    const res = await axios.post(`https://${domain}/api/track`, {
+    const res = await axios.post("https://qwq.sh/api/track", {
       key: (document.getElementById("input") as HTMLInputElement).value,
     });
     const json = await res.data;
@@ -78,7 +77,7 @@ const Tracking: NextPage = () => {
   return (
     <>
       <Head>
-        <title>{domain}</title>
+        <title>qwq.sh</title>
         <meta name="description" content="Track your URLs." />
         <link rel="icon" href="/favicon.ico" />
       </Head>

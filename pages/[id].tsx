@@ -5,8 +5,7 @@ import axios from "axios";
 export async function getServerSideProps(context: any) {
   const key = context.query.id.toString();
 
-  const domain = process.env.DOMAIN; 
-  const res = await axios.post(`https://${domain}/api/redirect`, { key: key });
+  const res = await axios.post("https://qwq.sh/api/redirect", { key: key });
 
   if (res.status !== 200) {
     return {
@@ -25,7 +24,6 @@ export async function getServerSideProps(context: any) {
 }
 
 const Redirect: NextPage = () => {
-  let domain = process.env.DOMAIN;
   return (
     <>
       <div className="flex w-screen h-screen justify-center items-center bg-black text-white">
@@ -36,7 +34,7 @@ const Redirect: NextPage = () => {
             might be invalid.
           </p>
           <p className="text-custom-400 font-bold py-8">
-            <Link href="/">{domain}</Link>
+            <Link href="/">qwq.sh</Link>
           </p>
         </div>
       </div>
