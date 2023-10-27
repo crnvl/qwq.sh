@@ -49,9 +49,10 @@ const Home: NextPage = () => {
 
   const [isZeroWidth, setIsZeroWidth] = useState(false);
 
+  let domain = process.env.DOMAIN;
   const createShortUrl = async (e: any) => {
     e.preventDefault();
-    const res = await axios.post("https://qwq.sh/api/create", {
+    const res = await axios.post(`https://${domain}/api/create`, {
       url: (document.getElementById("input") as HTMLInputElement).value,
       isZeroWidth: isZeroWidth,
     });
@@ -130,7 +131,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>qwq.sh</title>
+        <title>{domain}</title>
         <meta name="description" content="Easy to use & free URL Shortener." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
