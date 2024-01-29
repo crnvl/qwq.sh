@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@splinetool/react-spline": "^2.2.6",
-    "@splinetool/runtime": "^0.9.455",
+    "@splinetool/runtime": "^1.0.38",
     "@types/mongoose": "^5.11.97",
     "axios": "^1.6.2",
     "mongoose": "^7.6.3",
